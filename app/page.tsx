@@ -1,8 +1,9 @@
+import { Button, Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <div>
-      Hello World!
-    </div>
+    <Stack>
+      <Button>Click me</Button>
+    </Stack>
   );
 }
