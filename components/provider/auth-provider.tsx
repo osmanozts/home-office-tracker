@@ -2,7 +2,7 @@
 
 import { useEffect, useState, createContext, useContext } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { supabaseClient } from "@/libs/db";
+import { supabaseClient } from "@/app/libs/db/client";
 
 const AuthContext = createContext<{ user: any | null }>({ user: null });
 
@@ -16,19 +16,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const supabase = supabaseClient();
 
-        const getUser = async () => {
+        const checkSession = async () => {
             const { data: { session } } = await supabase.auth.getSession();
 
-            if (!session && !pathname.startsWith("/auth")) {
-                router.replace("/auth/login");
+            if (!session && !pathname.startsWith("/sign-in")) {
+                router.replace("/sign-in");
             } else {
                 setUser(session?.user ?? null);
             }
         };
-        getUser();
+        checkSession();
 
         const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
             setUser(session?.user ?? null);
+            checkSession();
         });
 
         return () => {
