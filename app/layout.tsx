@@ -1,5 +1,5 @@
-import { Provider } from "@/components/ui/provider";
 import "./globals.css";
+import { AuthProvider, UiProvider } from "@/components/provider";
 
 
 export default function RootLayout({
@@ -10,7 +10,10 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <body>
-        <Provider>{children}</Provider>
+        <AuthProvider>
+          <UiProvider
+          >{children}</UiProvider>
+        </AuthProvider>
       </body>
     </html>
   );
