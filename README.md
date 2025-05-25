@@ -60,7 +60,7 @@ The application requires several environment variables to be properly set. Pleas
 
 - `NEXT_PUBLIC_SUPABASE_URL`: The URL of your Supabase instance.
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: The anonymous key for accessing Supabase services.
-- `NEXT_PUBLIC_MAIL_API_KEY`: Your Resend API key for sending emails.
+- `MAIL_API_KEY`: Your Resend API key for sending emails.
 - `NEXT_PUBLIC_SENDER_MAIL`: The email address from which the notifications are sent.
 - `NEXT_PUBLIC_RECIPIENT_MAIL`: The recipient email address for notifications.
 

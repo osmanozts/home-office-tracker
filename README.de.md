@@ -58,7 +58,7 @@ Die Anwendung erfordert einige Umgebungsvariablen, die korrekt gesetzt sein müs
 
 - `NEXT_PUBLIC_SUPABASE_URL`: Die URL deiner Supabase-Instanz.
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Der anonyme API-Schlüssel für den Zugriff auf Supabase-Dienste.
-- `NEXT_PUBLIC_MAIL_API_KEY`: Dein Resend-API-Schlüssel zum Versenden von E-Mails.
+- `MAIL_API_KEY`: Dein Resend-API-Schlüssel zum Versenden von E-Mails.
 - `NEXT_PUBLIC_SENDER_MAIL`: Die Absender-E-Mail-Adresse für Benachrichtigungen.
 - `NEXT_PUBLIC_RECIPIENT_MAIL`: Die Empfänger-E-Mail-Adresse für Benachrichtigungen.
 

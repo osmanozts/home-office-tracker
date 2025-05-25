@@ -2,11 +2,11 @@ import EmailTemplate from "@/emails";
 import dayjs from "dayjs";
 import { Resend } from "resend";
 
-const apiKey = process.env.NEXT_PUBLIC_MAIL_API_KEY;
+const apiKey = process.env.MAIL_API_KEY;
 const sender = process.env.NEXT_PUBLIC_SENDER_MAIL;
 const recipient = process.env.NEXT_PUBLIC_RECIPIENT_MAIL;
 
-const resend = new Resend(process.env.NEXT_PUBLIC_MAIL_API_KEY);
+const resend = new Resend(process.env.MAIL_API_KEY);
 
 export async function POST(request: Request) {
   const { email, start, end } = await request.json();
