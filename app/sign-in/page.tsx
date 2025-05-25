@@ -3,7 +3,7 @@
 import React from 'react'
 import { SignInForm } from '@/components/ui'
 import { Stack } from '@chakra-ui/react'
-import { signInClient } from './services/sign-in'
+import { signInClient } from './server/sign-in'
 
 export default function SignInPage() {
     return (
