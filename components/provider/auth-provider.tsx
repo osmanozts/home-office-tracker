@@ -4,13 +4,14 @@ import { useEffect, useState, createContext, useContext } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { supabaseClient } from "@/app/libs/db/client";
 import { Spinner, Text, VStack } from "@chakra-ui/react";
+import type { User } from "@supabase/supabase-js";
 
-const AuthContext = createContext<{ user: any | null }>({ user: null });
+const AuthContext = createContext<{ user: User | null }>({ user: null });
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const [user, setUser] = useState<any | null>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const pathname = usePathname();

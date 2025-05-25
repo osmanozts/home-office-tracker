@@ -31,7 +31,7 @@ export function SessionHistory() {
         const supabase = supabaseClient();
         const sessionChannel = supabase
             .channel('homeoffice_session_listener')
-            .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'homeoffice_sessions' }, (payload) => {
+            .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'homeoffice_sessions' }, () => {
                 fetchPastSessions();
             })
             .subscribe();

@@ -39,8 +39,12 @@ export function SignInForm() {
             } else {
                 router.push("/");
             }
-        } catch (e: any) {
-            setErrorMessage(e.message || "Login fehlgeschlagen");
+        } catch (e) {
+            if (e instanceof Error) {
+                setErrorMessage(e.message);
+            } else {
+                setErrorMessage("Login fehlgeschlagen");
+            }
         } finally {
             setLoading(false);
         }
