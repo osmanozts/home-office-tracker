@@ -27,17 +27,17 @@ export function SignInForm({ signIn }: Props) {
     return (
         <form>
             <Stack borderWidth={1} padding={8} gap="4" align="flex-start" maxW="sm">
-                <Heading color="#000">Login</Heading>
+                <Heading>Login</Heading>
 
                 <Field.Root invalid={!!errors.email}>
-                    <Field.Label color="#000">Email</Field.Label>
-                    <Input color="#000" {...register("email")} />
+                    <Field.Label >Email</Field.Label>
+                    <Input {...register("email")} />
                     <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                 </Field.Root>
 
                 <Field.Root invalid={!!errors.password}>
-                    <Field.Label color="#000">Passwort</Field.Label>
-                    <PasswordInput color="#000" {...register("password")} />
+                    <Field.Label >Passwort</Field.Label>
+                    <PasswordInput {...register("password")} />
                     <Field.ErrorText>{errors.password?.message}</Field.ErrorText>
                 </Field.Root>
 
