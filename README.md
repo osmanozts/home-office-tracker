@@ -32,11 +32,7 @@ On session stop, an email is sent to notify the configured recipient email with 
 
 ### Session History
 
-Past sessions can be viewed in the "Session History" tab. The app fetches the session data from the `homeoffice_sessions` table, displaying the session details, such as start and end times, and the duration.
-
-### Realtime Updates
-
-The app uses Supabase Realtime to listen for updates to the `homeoffice_sessions` table. Whenever a session is updated (e.g., marked as stopped), the session history is automatically refreshed and displayed in real-time without a manual reload.
+Past sessions can be viewed in the "Session History" section. The app fetches the session data from the `homeoffice_sessions` table, displaying the session details, such as start and end times, and the duration.
 
 ## Tech Stack
 

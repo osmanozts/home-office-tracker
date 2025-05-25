@@ -30,11 +30,7 @@ Beim Beenden einer Sitzung wird eine E-Mail an die konfigurierte Email gesendet,
 
 ### Sitzungsverlauf
 
-Vergangene Sitzungen können im Tab **"Session History"** eingesehen werden. Die App liest dazu die Daten aus der Tabelle `homeoffice_sessions` und zeigt Start- und Endzeit sowie die Dauer jeder Sitzung an.
-
-### Echtzeit-Aktualisierung
-
-Die Anwendung nutzt **Supabase Realtime**, um Änderungen an der Tabelle `homeoffice_sessions` zu überwachen. Sobald sich der Status einer Sitzung ändert (z. B. bei Beendigung), wird die Historie automatisch aktualisiert – ein manuelles Neuladen der Seite ist nicht erforderlich.
+Vergangene Sitzungen können im Bereich **"Vergangene Sessions"** eingesehen werden. Die App liest dazu die Daten aus der Tabelle `homeoffice_sessions` und zeigt Start- und Endzeit sowie die Dauer jeder Sitzung an.
 
 ## Tech-Stack
 
