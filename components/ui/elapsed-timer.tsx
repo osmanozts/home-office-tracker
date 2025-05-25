@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 interface Props {
-    start: string // ISO-Zeit
+    start: string
 }
 
 export function ElapsedTimer({ start }: Props) {
