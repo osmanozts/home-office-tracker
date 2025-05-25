@@ -26,7 +26,7 @@ Wenn neue Benutzerkonten registriert werden, löst die Anwendung eine Postgres-F
 
 Wenn ein Benutzer eine Sitzung startet, wird ein neuer Eintrag in der Tabelle `homeoffice_sessions` erstellt, in dem der Startzeitpunkt gespeichert wird. Die Sitzung bleibt aktiv, bis sie manuell beendet wird – dann wird die Endzeit aktualisiert.
 
-Beim Beenden einer Sitzung wird eine E-Mail an den Benutzer gesendet, die die Sitzungsdetails wie Startzeit, Endzeit und Dauer enthält.
+Beim Beenden einer Sitzung wird eine E-Mail an die konfigurierte Email gesendet, die die Sitzungsdetails wie Startzeit, Endzeit und Dauer enthält.
 
 ### Sitzungsverlauf
 

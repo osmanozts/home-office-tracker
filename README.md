@@ -28,7 +28,7 @@ If new accounts are registered tha application triggers a postgres function whic
 
 When a user starts a session, a new record is created in the `homeoffice_sessions` table, and the start time is stored. The session will remain active until the user decides to stop it, at which point the session end time is updated.
 
-On session stop, an email is sent to notify the user with session details, including the start time, end time, and duration.
+On session stop, an email is sent to notify the configured recipient email with session details, including the start time, end time, and duration.
 
 ### Session History
 
