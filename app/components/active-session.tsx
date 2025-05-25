@@ -103,7 +103,7 @@ export function ActiveSession() {
                 <VStack align="stretch" gap={2}>
                     <Box key={activeSession.id} p={4} bg="gray.50" rounded="md" border="1px solid #eee">
                         <Text>Gestartet: {dayjs(activeSession.start_time).format("DD.MM.YYYY HH:mm")}</Text>
-                        <Text>⏱️ Laufzeit: <ElapsedTimer start={activeSession.start_time} /></Text>
+                        <Text>Laufzeit: <ElapsedTimer start={activeSession.start_time} /></Text>
                         <Button
                             bg="#E30614"
                             color="#fff" loading={loading.stop} mt={2} size="sm" onClick={() => stopSession(activeSession.id)}>
