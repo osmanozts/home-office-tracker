@@ -1,17 +1,31 @@
+import 'react-calendar/dist/Calendar.css';
 import { useEffect, useState } from "react";
-import { Box, Heading, Spinner, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Heading, Spinner, Stack, Text, VStack } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { Session } from "../page";
-import { supabaseClient } from "../libs/db/client";
+import Calendar from "react-calendar";
+import { supabaseClient } from '../libs/db/client';
+
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export function SessionHistory() {
+    const [date, onChange] = useState<Value>(new Date());
     const [isLoading, setIsLoading] = useState(false);
+    const [showCalendar, setShowCalendar] = useState(false);
     const [pastSessions, setPastSessions] = useState<Session[]>([]);
 
-    async function fetchPastSessions() {
+    useEffect(() => {
+        fetchPastSessions(date);
+    }, [date]);
+
+    async function fetchPastSessions(date: Value) {
         setIsLoading(true);
         try {
-            const res = await fetch("/api/homeoffice-sessions/history");
+            const selectedDate = Array.isArray(date) ? date[0] : date;
+            const dateParam = date ? dayjs(selectedDate).format("YYYY-MM-DD") : "";
+            const res = await fetch(`/api/homeoffice-sessions/history?date=${dateParam}`);
             const data = await res.json();
             if (!res.ok) {
                 console.error("Fehler beim Laden der Sessions:", data.error);
@@ -26,13 +40,11 @@ export function SessionHistory() {
     }
 
     useEffect(() => {
-        fetchPastSessions();
-
         const supabase = supabaseClient();
         const sessionChannel = supabase
             .channel('homeoffice_session_listener')
             .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'homeoffice_sessions' }, () => {
-                fetchPastSessions();
+                fetchPastSessions(date);
             })
             .subscribe();
 
@@ -60,13 +72,21 @@ export function SessionHistory() {
 
     return (
         <Stack borderWidth={1} borderRadius={8} padding={4}>
+            <Heading size="md" mb={2}>
+                Vergangene Sessions:
+            </Heading>
+
+            <Button maxWidth={250} onClick={() => setShowCalendar(prev => !prev)}>{dayjs(Array.isArray(date) ? date[0] : date).format("DD.MM.YYYY")}</Button>
+            <Box backgroundColor="#fff" maxWidth={250} marginY={4}>
+                {showCalendar && <Calendar onChange={(value: Value) => {
+                    onChange(value);
+                    setShowCalendar(false)
+                }} value={date} />}
+            </Box>
             <Box>
-                <Heading size="md" mb={2}>
-                    Vergangene Sessions
-                </Heading>
                 {isLoading && <Spinner />}
                 {pastSessions && pastSessions.length === 0 && !isLoading && (
-                    <Text color="gray.500">Keine vergangenen Sessions</Text>
+                    <Text color="gray.500">Keine vergangenen Sessions am am {dayjs(Array.isArray(date) ? date[0] : date).format("DD.MM.YYYY")}</Text>
                 )}
                 {pastSessions && pastSessions.length > 0 && (
                     <VStack align="stretch" gap={2}>
