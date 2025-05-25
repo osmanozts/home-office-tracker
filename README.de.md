@@ -34,7 +34,7 @@ Vergangene Sitzungen können im Bereich **"Vergangene Sessions"** eingesehen wer
 
 ## Tech-Stack
 
-Der Technologie-Stack wurde mit starkem Fokus auf schnelles Prototyping, Wartbarkeit und moderne Entwicklungsstandards ausgewählt. Aufgrund des begrenzten Implementierungszeitraums von etwa 6–8 Stunden mussten die Tools ein hohes Maß an Abstraktion, exzellente Dokumentation und nahtlose Integration bieten.
+Der Tech-Stack wurde mit starkem Fokus auf schnelles Prototyping, Wartbarkeit und moderne Entwicklungsstandards ausgewählt. Aufgrund des begrenzten Implementierungszeitraums von etwa 6–8 Stunden mussten die Tools ein hohes Maß an Abstraktion, exzellente Dokumentation und nahtlose Integration bieten.
 
 - **Next.js**: Ein auf React basierendes Framework, das sowohl Frontend- als auch Backend-Entwicklung in einer gemeinsamen Codebasis ermöglicht. Es erlaubt schnelle Entwicklung durch integriertes Routing, API-Routen und serverseitiges Rendering.
 - **Supabase**: Als Backend-Plattform gewählt wegen des sofort einsatzbereiten Postgres-Setups, integrierter Authentifizierung und Echtzeitdatenbank-Funktionalität.
