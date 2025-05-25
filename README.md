@@ -6,6 +6,8 @@ This is a web application designed to help employees track their working hours i
 
 The implementation was completed within a focused 6–8 hour window, prioritizing high efficiency without compromising on code quality or structural clarity.
 
+The web app is deployed on [home-office-tracker.vercel.app](https://home-office-tracker.vercel.app) for testing.
+
 ## How it works
 
 Here’s a breakdown of how the core features work:

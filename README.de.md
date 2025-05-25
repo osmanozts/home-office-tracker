@@ -4,6 +4,8 @@ Dies ist eine Webanwendung, die Mitarbeitenden hilft, ihre Arbeitszeiten im Home
 
 Die Implementierung wurde in einem fokussierten Zeitfenster von 6–8 Stunden abgeschlossen. Dabei lag der Fokus auf hoher Effizienz, ohne Kompromisse bei Codequalität oder Struktur einzugehen.
 
+Die Web App ist auf [home-office-tracker.vercel.app](https://home-office-tracker.vercel.app) deployed und kann dort getestet werden.
+
 ## Funktionsweise
 
 Hier ein Überblick darüber, wie die Kernfunktionen der Anwendung funktionieren:
