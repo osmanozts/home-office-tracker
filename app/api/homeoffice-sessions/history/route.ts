@@ -1,0 +1,17 @@
+import { supabaseServer } from "@/app/libs/db/server";
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const supabase = await supabaseServer();
+  const auth = await supabase.auth.getUser();
+  const { data, error } = await supabase
+    .from("homeoffice_sessions")
+    .select("*")
+    .eq("user_id", auth.data.user?.id)
+    .order("start_time", { ascending: false });
+
+  if (error)
+    return NextResponse.json({ error: error.message }, { status: 500 });
+
+  return NextResponse.json(data);
+}

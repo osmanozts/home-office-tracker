@@ -11,11 +11,7 @@ interface FormValues {
     password: string;
 }
 
-interface Props {
-    signIn: (email: string, password: string) => Promise<void>;
-}
-
-export function SignInForm({ signIn }: Props) {
+export function SignInForm() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -30,7 +26,19 @@ export function SignInForm({ signIn }: Props) {
         setLoading(true);
         setErrorMessage(null);
         try {
-            await signIn(data.email, data.password);
+            const res = await fetch("/api/auth/sign-in", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: data.email, password: data.password }),
+            });
+
+            const jsonResponse = await res.json();
+
+            if (!res.ok) {
+                setErrorMessage(jsonResponse.error || "Unbekannter Fehler");
+            } else {
+                router.push("/");
+            }
         } catch (e: any) {
             setErrorMessage(e.message || "Login fehlgeschlagen");
         } finally {
